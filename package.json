@@ -1,0 +1,27 @@
+{
+  "name": "doctorna",
+  "version": "1.0.0",
+  "description": "vezeeta clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KareemAliRahman/doctorna.git"
+  },
+  "keywords": [
+    "medical",
+    "services",
+    "appointments",
+    "medical",
+    "services",
+    "search"
+  ],
+  "author": "Kareem Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KareemAliRahman/doctorna/issues"
+  },
+  "homepage": "https://github.com/KareemAliRahman/doctorna#readme"
+}
