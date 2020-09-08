@@ -6,6 +6,7 @@ import {User} from "./entity/User";
 import {Doctor} from "./entity/Doctor";
 import {UserRepository} from "./repository/UserRepository"
 import {DoctorRepository} from "./repository/DoctorRepository"
+import {Gender} from "./entity/helperTypes"
 
 const app = express();
 
@@ -37,6 +38,8 @@ createConnection({
   let savedDoctors = connection.manager.find(Doctor); 
   savedDoctors.then(ds => {
     console.log(ds)
+    //console.log(ds[0].gender);
+    //console.log(Gender[ds[0].gender]);
     //ds.filter( u => u.id != 1).map( u => connection.manager.delete(Doctor,u.id));
   });
 }).catch(error => console.log(error));

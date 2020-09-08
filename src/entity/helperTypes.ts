@@ -1,0 +1,59 @@
+export enum Title{
+  Professor,
+  Lecturer,
+  Consultant, 
+  Specialist
+}
+
+export enum Gender{
+  Male,
+  Female,
+  Other
+}
+
+export enum Speciality{
+  Dermatology,
+  Dentistry,
+  Psychiatry,
+  Pediatrics_and_New_Born,
+  Neurology,
+  Orthopedics,
+  Gynaecology_and_Infertility,
+  Ear_Nose_and_Throat,
+  Cardiology_and_Vascular_Disease,
+  Other_Specialty,
+  Allergy_and_Immunology,
+  Andrology_and_Male_Infertility,
+  Audiology,
+  Cardiology_and_Thoracic_Surgery,
+  Chest_and_Respiratory,
+  Diabetes_and_Endocrinology,
+  Diagnostic_Radiology,
+  Dietitian_and_Nutrition,
+  Family_Medicine,
+  Gastroenterology_and_Endoscopy,
+  General_Practice,
+  General_Surgery,
+  Geriatrics,
+  Hematology,
+  Hepatology,
+  Internal_Medicine,
+  IVF_and_Infertility,
+  Laboratories,
+  Nephrology,
+  Neurosurgery,
+  Obesity_and_Laparoscopic_Surgery,
+  Oncology,
+  Oncology_Surgery,
+  Ophthalmology,
+  Osteopathy,
+  Pain_Management,
+  Pediatric_Surgery,
+  Phoniatrics,
+  Physiotherapy_and_Sport_Injuries,
+  Plastic_Surgery,
+  Rheumatology,
+  Spinal_Surgery,
+  Urology,
+  Vascular_Surgery
+}
