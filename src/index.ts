@@ -7,26 +7,25 @@ import {User} from "./entity/User";
 createConnection({
     type: "postgres",
     host: "localhost",
-    port: 3306,
-    username: "test",
+    port: 5432,
+    username: "postgres",
     password: "test",
-    database: "test",
+    database: "testdb",
     entities: [
        User 
     ],
     synchronize: true,
 }).then(connection => {
   // here you can start to work with your entities
-  connection.query("CREATE DATABASE IF NOT EXISTS");
   console.log("*****************************************");
   console.log("will insert user");
   console.log("*****************************************");
   let u = new User();
   u.name = "kareem Ali";
-  return connection.manager.save(u).then( u => console.log("user saved with id: ", u.id))
+  //return connection.manager.save(u).then( u => console.log("user saved with id: ", u.id))
 
-  //let savedUsers = connection.manager.find(User); 
-  //console.log("all users: ", savedUsers);
+  let savedUsers = connection.manager.find(User); 
+  console.log("all users: ", savedUsers);
 }).catch(error => console.log(error));
 
 const app = express(); // initialize the express server
