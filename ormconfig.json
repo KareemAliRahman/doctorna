@@ -4,7 +4,7 @@
    "port": 3306,
    "username": "test",
    "password": "test",
-   "database": "test",
+   "database": "testdb",
    "synchronize": true,
    "logging": false,
    "entities": [
@@ -15,5 +15,10 @@
    ],
    "subscribers": [
       "src/subscriber/**/*.ts"
-   ]
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+    }
 }
