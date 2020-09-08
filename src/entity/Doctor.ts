@@ -6,5 +6,8 @@ export class Doctor {
     id: number;
 
     @Column()
-    name: string;
+    firstName: string;
+
+    @Column()
+    lastName: string;
 }
