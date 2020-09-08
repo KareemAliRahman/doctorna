@@ -3,6 +3,7 @@ import {log} from "util";
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import {User} from "./entity/User";
+import {Doctor} from "./entity/Doctor";
 
 createConnection({
     type: "postgres",
@@ -12,20 +13,27 @@ createConnection({
     password: "test",
     database: "testdb",
     entities: [
-       User 
+       User,
+       Doctor
     ],
     synchronize: true,
 }).then(connection => {
-  // here you can start to work with your entities
-  console.log("*****************************************");
-  console.log("will insert user");
-  console.log("*****************************************");
-  let u = new User();
-  u.name = "kareem Ali";
-  //return connection.manager.save(u).then( u => console.log("user saved with id: ", u.id))
-
+  //let u = new User();
+  //let d = new Doctor();
+  //u.name = "kareem Ali";
+  //d.name = "dr. kareem ali";
+  //connection.manager.save(u).then( u => console.log("user saved with id: ", u.id))
+  //connection.manager.save(d).then( d => console.log("doctor saved with id: ", d.id))
   let savedUsers = connection.manager.find(User); 
-  console.log("all users: ", savedUsers);
+  savedUsers.then(us => {
+    console.log(us);
+    //us.filter( u => u.id != 1).map( u => connection.manager.delete(u));
+  });
+  let savedDoctors = connection.manager.find(Doctor); 
+  savedDoctors.then(ds => {
+    console.log(ds)
+    //ds.filter( u => u.id != 1).map( u => connection.manager.delete(u));
+  });
 }).catch(error => console.log(error));
 
 const app = express(); // initialize the express server

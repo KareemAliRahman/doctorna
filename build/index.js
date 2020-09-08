@@ -3,10 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(require("express"));
+const express_1 = __importDefault(require("express"));
 require("reflect-metadata");
-var typeorm_1 = require("typeorm");
-var User_1 = require("./entity/User");
+const typeorm_1 = require("typeorm");
+const User_1 = require("./entity/User");
+const Doctor_1 = require("./entity/Doctor");
 typeorm_1.createConnection({
     type: "postgres",
     host: "localhost",
@@ -15,25 +16,33 @@ typeorm_1.createConnection({
     password: "test",
     database: "testdb",
     entities: [
-        User_1.User
+        User_1.User,
+        Doctor_1.Doctor
     ],
     synchronize: true,
-}).then(function (connection) {
-    // here you can start to work with your entities
-    console.log("*****************************************");
-    console.log("will insert user");
-    console.log("*****************************************");
-    var u = new User_1.User();
-    u.name = "kareem Ali";
-    //return connection.manager.save(u).then( u => console.log("user saved with id: ", u.id))
-    var savedUsers = connection.manager.find(User_1.User);
-    console.log("all users: ", savedUsers);
-}).catch(function (error) { return console.log(error); });
-var app = express_1.default(); // initialize the express server
+}).then(connection => {
+    //let u = new User();
+    //let d = new Doctor();
+    //u.name = "kareem Ali";
+    //d.name = "dr. kareem ali";
+    //connection.manager.save(u).then( u => console.log("user saved with id: ", u.id))
+    //connection.manager.save(d).then( d => console.log("doctor saved with id: ", d.id))
+    let savedUsers = connection.manager.find(User_1.User);
+    savedUsers.then(us => {
+        console.log(us);
+        //us.filter( u => u.id != 1).map( u => connection.manager.delete(u));
+    });
+    let savedDoctors = connection.manager.find(Doctor_1.Doctor);
+    savedDoctors.then(ds => {
+        console.log(ds);
+        //ds.filter( u => u.id != 1).map( u => connection.manager.delete(u));
+    });
+}).catch(error => console.log(error));
+const app = express_1.default(); // initialize the express server
 // create a test route
-app.get('/', function (req, res, next) {
+app.get('/', (req, res, next) => {
     res.send('Hello world');
 }); // Define the port to run the server. this could either be defined // in the environment variables or directly as shown below
-app.listen(process.env.PORT || 4000, function () {
+app.listen(process.env.PORT || 4000, () => {
     console.log("server started");
 });

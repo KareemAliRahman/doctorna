@@ -7,5 +7,4 @@ export class Doctor {
 
     @Column()
     name: string;
-
 }

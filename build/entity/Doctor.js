@@ -10,21 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Doctor = void 0;
-var typeorm_1 = require("typeorm");
-var Doctor = /** @class */ (function () {
-    function Doctor() {
-    }
-    __decorate([
-        typeorm_1.PrimaryGeneratedColumn(),
-        __metadata("design:type", Number)
-    ], Doctor.prototype, "id", void 0);
-    __decorate([
-        typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], Doctor.prototype, "name", void 0);
-    Doctor = __decorate([
-        typeorm_1.Entity()
-    ], Doctor);
-    return Doctor;
-}());
+const typeorm_1 = require("typeorm");
+let Doctor = class Doctor {
+};
+__decorate([
+    typeorm_1.PrimaryGeneratedColumn(),
+    __metadata("design:type", Number)
+], Doctor.prototype, "id", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Doctor.prototype, "name", void 0);
+Doctor = __decorate([
+    typeorm_1.Entity()
+], Doctor);
 exports.Doctor = Doctor;
