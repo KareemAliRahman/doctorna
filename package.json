@@ -4,7 +4,9 @@
   "description": "vezeeta clone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "tsc && node build/index.js",
+    "start": "nodemon -e ts -w ./ -x npm run start-server"
   },
   "repository": {
     "type": "git",
@@ -14,8 +16,6 @@
     "medical",
     "services",
     "appointments",
-    "medical",
-    "services",
     "search"
   ],
   "author": "Kareem Ali",
@@ -23,5 +23,14 @@
   "bugs": {
     "url": "https://github.com/KareemAliRahman/doctorna/issues"
   },
-  "homepage": "https://github.com/KareemAliRahman/doctorna#readme"
+  "homepage": "https://github.com/KareemAliRahman/doctorna#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.6.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.3.3",
+    "typeorm": "^0.2.25"
+  }
 }
