@@ -3,8 +3,8 @@
    "host": "localhost",
    "port": 5432,
    "username": "postgres",
-   "password": "test",
-   "database": "testdb",
+   "password": "postgres",
+   "database": "doctorna",
    "synchronize": true,
    "logging": false,
    "entities": [
@@ -17,8 +17,8 @@
       "build/subscriber/**/*.js"
    ],
    "cli": {
-      "entitiesDir": "src/entity",
-      "migrationsDir": "src/migration",
-      "subscribersDir": "src/subscriber"
+      "entitiesDir": "build/entity",
+      "migrationsDir": "build/migration",
+      "subscribersDir": "build/subscriber"
     }
 }
