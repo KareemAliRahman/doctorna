@@ -34,7 +34,4 @@ export class Doctor extends BaseEntity {
 
     @OneToMany(() => TimeSlot, timeSlot => timeSlot.doctor)
     timeSlots : TimeSlot[];
-
-    @OneToMany(() => Appointment, appointment => appointment.doctor)
-    appointments : Appointment[];
 }

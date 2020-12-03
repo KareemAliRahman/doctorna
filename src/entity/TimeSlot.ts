@@ -27,8 +27,9 @@ export class TimeSlot extends BaseEntity{
     @Column("time", {nullable: false}) 
     end: Date;
 
-    @ManyToOne(() => Doctor, doctor => doctor.timeSlots)()
+    @ManyToOne(() => Doctor, doctor => doctor.timeSlots)
     doctor: Doctor;
 
-    @OneToOne(() => User, user => user.appointments)
+    @OneToOne(() => User, user => user.timeSlots, {nullable: true})
+    user: User | null;
 }

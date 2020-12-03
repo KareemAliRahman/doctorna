@@ -13,6 +13,6 @@ export class User extends BaseEntity{
     @Column()
     lastName: string;
 
-    @OneToMany(() => TimeSlot, timeslot => timeslot.user)
+    @OneToMany(() => TimeSlot, timeSlot => timeSlot.user)
     timeSlots : TimeSlot[];
 }
