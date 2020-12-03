@@ -1,4 +1,5 @@
-import {BaseEntity, Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {BaseEntity, Entity, Column, PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import {TimeSlot} from "./TimeSlot";
 
 @Entity()
 export class User extends BaseEntity{
@@ -11,4 +12,7 @@ export class User extends BaseEntity{
 
     @Column()
     lastName: string;
+
+    @OneToMany(() => TimeSlot, timeslot => timeslot.user)
+    timeSlots : TimeSlot[];
 }

@@ -1,8 +1,9 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity} from "typeorm";
 import {Gender, Title, Speciality} from "./helperTypes";
+import {TimeSlot} from "./TimeSlot";
 
 @Entity()
-export class Doctor {
+export class Doctor extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -31,4 +32,9 @@ export class Doctor {
     @Column("enum", {enum: Speciality, default: Speciality.Other_Specialty})
     speciality: Speciality;
 
+    @OneToMany(() => TimeSlot, timeSlot => timeSlot.doctor)
+    timeSlots : TimeSlot[];
+
+    @OneToMany(() => Appointment, appointment => appointment.doctor)
+    appointments : Appointment[];
 }
